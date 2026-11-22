@@ -1,0 +1,36 @@
+# Executable
+/graphics_engine
+
+# Compiled objects and libraries
+*.o
+*.a
+*.so
+*.so.*
+
+# Build directories
+/build/
+/bin/
+
+# Debugging and profiling
+*.core
+core
+core.*
+*.profraw
+*.profdata
+vgcore.*
+
+# Clangd cache
+.cache/
+
+# Vim / Neovim temporary files
+*.swp
+*.swo
+*.swn
+*~
+
+# Linux desktop files
+.directory
+
+# Temporary files
+*.tmp
+*.bak
