@@ -66,6 +66,19 @@ void clearFrameBuffer(EGAColor color) {
   }
 }
 
+// drawing primitives
+void drawHorizontalLine(int x1, int x2, int y, EGAColor color) {
+  for (int x = x1; x <= x2; x++) {
+    putPixel(x, y, color);
+  }
+}
+
+void drawVerticalLine(int y1, int y2, int x, EGAColor color) {
+  for (int y = y1; y <= y2; y++) {
+    putPixel(x, y, color);
+  }
+}
+
 // main
 int main(void) {
   if (!SDL_Init(SDL_INIT_VIDEO)) {
@@ -108,6 +121,8 @@ int main(void) {
 
   // transfer pixels to texture
   clearFrameBuffer(BLUE);
+  drawHorizontalLine(10, 150, 80, WHITE);
+  drawVerticalLine(20, 120, 50, WHITE);
   SDL_SetTextureScaleMode(texture, SDL_SCALEMODE_NEAREST);
   SDL_UpdateTexture(texture, NULL, framebuffer, WIDTH * sizeof(uint32_t));
 
