@@ -68,12 +68,24 @@ void clearFrameBuffer(EGAColor color) {
 
 // drawing primitives
 void drawHorizontalLine(int x1, int x2, int y, EGAColor color) {
+  if (x1 > x2) {
+    int temp = x1;
+    x1 = x2;
+    x2 = temp;
+  }
+
   for (int x = x1; x <= x2; x++) {
     putPixel(x, y, color);
   }
 }
 
 void drawVerticalLine(int y1, int y2, int x, EGAColor color) {
+  if (y1 > y2) {
+    int temp = y1;
+    y1 = y2;
+    y2 = temp;
+  }
+
   for (int y = y1; y <= y2; y++) {
     putPixel(x, y, color);
   }
@@ -130,7 +142,7 @@ int main(void) {
   bool running = true;
   SDL_Event event;
   while (running) {
-    // process all running events
+    // process all pending events
     while (SDL_PollEvent(&event)) {
       if (event.type == SDL_EVENT_QUIT) {
         running = false;
