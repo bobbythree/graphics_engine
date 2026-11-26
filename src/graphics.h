@@ -9,10 +9,10 @@
 
 extern uint32_t framebuffer[HEIGHT][WIDTH];
 
-void putPixel(int x, int y, EGAColor color);
-void clearFrameBuffer(EGAColor color);
-void drawHorizontalLine(int x1, int x2, int y, EGAColor color);
-void drawVerticalLine(int y1, int y2, int x, EGAColor color);
-void drawDiagonalLine(int x1, int y1, int x2, int y2, EGAColor color);
+void put_pixel(int x, int y, ega_color color);
+void clear_frame_buffer(ega_color color);
+void draw_horizontal_line(int x1, int x2, int y, ega_color color);
+void draw_vertical_line(int y1, int y2, int x, ega_color color);
+void draw_diagonal_line(int x1, int y1, int x2, int y2, ega_color color);
 
 #endif

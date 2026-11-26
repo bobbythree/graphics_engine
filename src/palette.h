@@ -21,7 +21,7 @@ typedef enum {
   YELLOW,
   WHITE,
   COLOR_COUNT
-} EGAColor;
+} ega_color;
 
 extern const uint32_t palette[COLOR_COUNT];
 

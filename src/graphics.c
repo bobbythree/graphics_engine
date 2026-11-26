@@ -5,7 +5,7 @@
 uint32_t framebuffer[HEIGHT][WIDTH];
 
 // draw pixel at coordinate x, y
-void putPixel(int x, int y, EGAColor color) {
+void put_pixel(int x, int y, ega_color color) {
   if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT) {
     return;
   }
@@ -18,16 +18,16 @@ void putPixel(int x, int y, EGAColor color) {
 }
 
 // fill entire framebuffer with one color
-void clearFrameBuffer(EGAColor color) {
+void clear_frame_buffer(ega_color color) {
   for (int y = 0; y < HEIGHT; y++) {
     for (int x = 0; x < WIDTH; x++) {
-      putPixel(x, y, color);
+      put_pixel(x, y, color);
     }
   }
 }
 
 // drawing primitives
-void drawHorizontalLine(int x1, int x2, int y, EGAColor color) {
+void draw_horizontal_line(int x1, int x2, int y, ega_color color) {
   if (x1 > x2) { // swap coords and draw opposite way
     int temp = x1;
     x1 = x2;
@@ -35,11 +35,11 @@ void drawHorizontalLine(int x1, int x2, int y, EGAColor color) {
   }
 
   for (int x = x1; x <= x2; x++) {
-    putPixel(x, y, color);
+    put_pixel(x, y, color);
   }
 }
 
-void drawVerticalLine(int y1, int y2, int x, EGAColor color) {
+void draw_vertical_line(int y1, int y2, int x, ega_color color) {
   if (y1 > y2) {
     int temp = y1;
     y1 = y2;
@@ -47,20 +47,20 @@ void drawVerticalLine(int y1, int y2, int x, EGAColor color) {
   }
 
   for (int y = y1; y <= y2; y++) {
-    putPixel(x, y, color);
+    put_pixel(x, y, color);
   }
 }
 
-void drawDiagonalLine(int x1, int y1, int x2, int y2, EGAColor color) {
+void draw_diagonal_line(int x1, int y1, int x2, int y2, ega_color color) {
 
-  int yStep;
+  int y_step;
   if (y1 > y2) {
-    yStep = -1;
+    y_step = -1;
   } else {
-    yStep = 1;
+    y_step = 1;
   }
 
-  for (int x = x1, y = y1; x <= x2; x++, y += yStep) {
-    putPixel(x, y, color);
+  for (int x = x1, y = y1; x <= x2; x++, y += y_step) {
+    put_pixel(x, y, color);
   }
 }
