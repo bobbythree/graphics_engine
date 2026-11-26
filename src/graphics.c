@@ -1,4 +1,5 @@
 #include "graphics.h"
+#include "palette.h"
 
 // frame buffer
 uint32_t framebuffer[HEIGHT][WIDTH];
@@ -46,6 +47,20 @@ void drawVerticalLine(int y1, int y2, int x, EGAColor color) {
   }
 
   for (int y = y1; y <= y2; y++) {
+    putPixel(x, y, color);
+  }
+}
+
+void drawDiagonalLine(int x1, int y1, int x2, int y2, EGAColor color) {
+
+  int yStep;
+  if (y1 > y2) {
+    yStep = -1;
+  } else {
+    yStep = 1;
+  }
+
+  for (int x = x1, y = y1; x <= x2; x++, y += yStep) {
     putPixel(x, y, color);
   }
 }

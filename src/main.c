@@ -53,6 +53,7 @@ int main(void) {
   clearFrameBuffer(BLUE);
   drawHorizontalLine(10, 150, 80, WHITE);
   drawVerticalLine(20, 120, 50, WHITE);
+  drawDiagonalLine(10, 10, 50, 50, WHITE);
   SDL_SetTextureScaleMode(texture, SDL_SCALEMODE_NEAREST);
   SDL_UpdateTexture(texture, NULL, framebuffer, WIDTH * sizeof(uint32_t));
 
