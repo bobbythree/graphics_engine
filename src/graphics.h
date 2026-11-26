@@ -14,5 +14,6 @@ void clear_frame_buffer(ega_color color);
 void draw_horizontal_line(int x1, int x2, int y, ega_color color);
 void draw_vertical_line(int y1, int y2, int x, ega_color color);
 void draw_diagonal_line(int x1, int y1, int x2, int y2, ega_color color);
+void draw_line(int x1, int y1, int x2, int y2, ega_color color);
 
 #endif

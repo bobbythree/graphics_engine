@@ -51,9 +51,17 @@ int main(void) {
 
   // transfer pixels to texture
   clear_frame_buffer(BLUE);
-  draw_horizontal_line(10, 150, 80, WHITE);
-  draw_vertical_line(20, 120, 50, WHITE);
-  draw_diagonal_line(10, 10, 50, 50, WHITE);
+  // draw_horizontal_line(10, 150, 80, WHITE);
+  // draw_vertical_line(20, 120, 50, WHITE);
+  // draw_diagonal_line(10, 10, 50, 50, WHITE);
+  draw_line(80, 84, 140, 104, WHITE);
+  draw_line(80, 84, 100, 144, WHITE);
+  draw_line(80, 84, 60, 144, WHITE);
+  draw_line(80, 84, 20, 104, WHITE);
+  draw_line(80, 84, 20, 64, WHITE);
+  draw_line(80, 84, 60, 24, WHITE);
+  draw_line(80, 84, 100, 24, WHITE);
+  draw_line(80, 84, 140, 64, WHITE);
   SDL_SetTextureScaleMode(texture, SDL_SCALEMODE_NEAREST);
   SDL_UpdateTexture(texture, NULL, framebuffer, WIDTH * sizeof(uint32_t));
 
