@@ -4,7 +4,7 @@ SDL_CFLAGS = $(shell pkg-config --cflags sdl3)
 SDL_LIBS = $(shell pkg-config --libs sdl3)
 
 TARGET = graphics_engine
-SRC = main.c
+SRC = src/main.c src/palette.c src/graphics.c
 
 .PHONY: all run run-wayland clean
 

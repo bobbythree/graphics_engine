@@ -1,0 +1,11 @@
+#include "palette.h"
+
+const uint32_t palette[COLOR_COUNT] = {
+    [BLACK] = 0xFF000000,       [BLUE] = 0xFF0000AA,
+    [GREEN] = 0xFF00AA00,       [CYAN] = 0xFF00AAAA,
+    [RED] = 0xFFAA0000,         [MAGENTA] = 0xFFAA00AA,
+    [BROWN] = 0xFFAA5500,       [LIGHT_GRAY] = 0xFFAAAAAA,
+    [DARK_GRAY] = 0xFF555555,   [LIGHT_BLUE] = 0xFF5555FF,
+    [LIGHT_GREEN] = 0xFF55FF55, [LIGHT_CYAN] = 0xFF55FFFF,
+    [LIGHT_RED] = 0xFFFF5555,   [LIGHT_MAGENTA] = 0xFFFF55FF,
+    [YELLOW] = 0xFFFFFF55,      [WHITE] = 0xFFFFFFFF};

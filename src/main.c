@@ -1,3 +1,4 @@
+#include "graphics.h"
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_init.h>
 #include <SDL3/SDL_render.h>
@@ -6,90 +7,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
-#define WIDTH 160
-#define HEIGHT 168
 #define SCALE 4
-
-// frame buffer
-uint32_t framebuffer[HEIGHT][WIDTH];
-
-// EGA color palette
-typedef enum {
-  BLACK,
-  BLUE,
-  GREEN,
-  CYAN,
-  RED,
-  MAGENTA,
-  BROWN,
-  LIGHT_GRAY,
-  DARK_GRAY,
-  LIGHT_BLUE,
-  LIGHT_GREEN,
-  LIGHT_CYAN,
-  LIGHT_RED,
-  LIGHT_MAGENTA,
-  YELLOW,
-  WHITE,
-  COLOR_COUNT
-} EGAColor;
-
-const uint32_t palette[COLOR_COUNT] = {
-    [BLACK] = 0xFF000000,       [BLUE] = 0xFF0000AA,
-    [GREEN] = 0xFF00AA00,       [CYAN] = 0xFF00AAAA,
-    [RED] = 0xFFAA0000,         [MAGENTA] = 0xFFAA00AA,
-    [BROWN] = 0xFFAA5500,       [LIGHT_GRAY] = 0xFFAAAAAA,
-    [DARK_GRAY] = 0xFF555555,   [LIGHT_BLUE] = 0xFF5555FF,
-    [LIGHT_GREEN] = 0xFF55FF55, [LIGHT_CYAN] = 0xFF55FFFF,
-    [LIGHT_RED] = 0xFFFF5555,   [LIGHT_MAGENTA] = 0xFFFF55FF,
-    [YELLOW] = 0xFFFFFF55,      [WHITE] = 0xFFFFFFFF};
-
-// draw pixel at coordinate x, y
-void putPixel(int x, int y, EGAColor color) {
-  if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT) {
-    return;
-  }
-
-  if (color < 0 || color >= COLOR_COUNT) {
-    return;
-  }
-
-  framebuffer[y][x] = palette[color];
-}
-
-// fill entire framebuffer with one color
-void clearFrameBuffer(EGAColor color) {
-  for (int y = 0; y < HEIGHT; y++) {
-    for (int x = 0; x < WIDTH; x++) {
-      putPixel(x, y, color);
-    }
-  }
-}
-
-// drawing primitives
-void drawHorizontalLine(int x1, int x2, int y, EGAColor color) {
-  if (x1 > x2) {
-    int temp = x1;
-    x1 = x2;
-    x2 = temp;
-  }
-
-  for (int x = x1; x <= x2; x++) {
-    putPixel(x, y, color);
-  }
-}
-
-void drawVerticalLine(int y1, int y2, int x, EGAColor color) {
-  if (y1 > y2) {
-    int temp = y1;
-    y1 = y2;
-    y2 = temp;
-  }
-
-  for (int y = y1; y <= y2; y++) {
-    putPixel(x, y, color);
-  }
-}
 
 // main
 int main(void) {
